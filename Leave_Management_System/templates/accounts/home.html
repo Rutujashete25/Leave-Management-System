@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Leave Management System</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<nav style="height:80px" class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+        <li style="font-size:30px"class="active"><a href="{% url 'home' %}">Home</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li style="font-size:30px"><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="container">
+    <div style="margin-top:100px;margin-left:320px;">
+        {% for role in roles %}
+        <a  style="margin-left:10px;font-size:28px" href="{% url 'sign-up' role.id %}"class="btn btn-primary active" role="button" data-bs-toggle="button" aria-pressed="true">{{role.role_name}} Registration</a>
+        {% endfor %}
+    </div>
+</div>
+</body>
+</html>
+

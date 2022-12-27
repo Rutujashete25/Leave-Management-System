@@ -1,0 +1,74 @@
+{% extends "accounts/base.html" %}
+{% load static %}
+{% block content %}
+            <div class="content container-fluid">
+               <div class="page-header">
+                  <div class="row">
+                     <div class="col-sm-12">
+                        <h3 class="page-title">Welcome {{request.user.name}}!!</h3>
+                        <ul class="breadcrumb">
+                           <li class="breadcrumb-item active">{{request.user.department_id.dep_name}}</li>
+                        </ul>
+                        <div class="top-nav-search">
+                            <form action="{% url 'search-staff-list' %}">
+                               <input type="text" class="form-control"  name='search' value="" placeholder="Search here">
+                               <button class="btn" type="submit"><i class="fas fa-search"></i></button>
+                            </form>
+                         </div>
+                        <div class="form-group">
+                            <a href="{% url 'staff-create' %}"> <button href="" style="margin-left:1000px;" class="btn btn-outline-info" type="submit"><i class="fa fa-plus" style="font-size:16px;color:green"></i>
+
+                              Create Staff
+                            </button></a>
+                         </div>
+                     </div>
+                  </div>
+               </div>
+                
+               
+               
+            <div class="row">
+                  <div class="col-sm-12">
+                     <div class="card card-table">
+                        <div class="card-body">
+                           <div class="table-responsive">
+                              <table class="table table-hover table-center mb-0 datatable">
+                                 <thead>
+                                    <tr>
+                                       <th>Sr.No</th>
+                                       <th>Name</th>
+                                       <th>Username</th>
+                                       <th>Email</th>
+                                       <th>Mobile Number</th>
+                                       <th class="text-right">Action</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                 {% for staff in page_obj %}
+                                    <tr>
+                                       <td>{{forloop.counter}}</td>
+                                       <td>{{staff.name}}</td>
+                                       <td>{{staff.username}}</td>
+                                       <td>{{staff.email}}</td>
+                                       <td>{{staff.contact_number}}</td>
+                                    
+                                       <td class="text-right">
+                                          <div class="actions">
+                                             <a href="{% url 'staff-detail' staff.id  %}" class="btn btn-sm bg-success-light mr-2">
+                                             <i class="fa fa-eye"></i>
+                                             </a>
+                                             <a href="{% url 'staff-delete' staff.id  %}" class="btn btn-sm bg-danger-light">
+                                             <i class="fas fa-trash"></i>
+                                             </a>
+                                          </div>
+                                       </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                              </table>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                        
+ {% endblock content %}

@@ -1,0 +1,71 @@
+{% extends "accounts/Staff_dashboard.html" %}
+{% load static %} 
+{% block content %}
+
+<section class='text-left container'>
+
+            <div class="row">
+                  <div class="col-sm-12">
+                     <div class="card">
+                        <div class="card-body">
+                           <form>
+                              <div class="row">
+                                 <div class="col-12">
+                                    <h5 class="form-title"><span>Staff Information</span></h5>
+                                 </div>
+                                 <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>First Name</label>
+                                       <span  class="form-control">{{leaves.user_id.name}}</span>
+                                    </div>
+                                 </div>
+                                 <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>Username</label>
+                                       <span  class="form-control">{{leaves.user_id.username}}</span>
+                                    </div>
+                                 </div>
+                                 <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>Department</label>
+                                       <span  class="form-control">{{leaves.department_id.dep_name}}</span>
+                                    </div>
+                                 </div>
+                                 <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>Leave_From_Date</label>
+                                       <span  class="form-control">{{leaves.leave_from_date}}</span>
+                                    </div>
+                                 </div>
+                                 <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>Leave_To_Date</label>
+                                       <div>
+                                          <span  class="form-control">{{leaves.leave_to_Date}}</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>Reason</label>
+                                       <div>
+                                          <span  class="form-control">{{leaves.reason}}</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                                 <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                       <label>Status</label>
+                                       <div>
+                                          <span  class="form-control">{{leaves.status}}</span>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+</section>
+
+{% endblock content %}
